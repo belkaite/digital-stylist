@@ -50,13 +50,13 @@ def draw_title(draw, title):
     font = ImageFont.load_default()  # Use a default font
     draw.text((10, 10), title, fill="black", font=font)
 
-def place_images_on_collage(draw, images, collage_size):
+def place_images_on_collage(draw, images, collage_size, collage):
     single_image_size = collage_size // len(images)
     for i, image in enumerate(images):
         image.thumbnail((single_image_size, single_image_size))
         x = i % 2 * single_image_size
         y = 50  # Offset by the height of the title
-        draw.paste(image, (x, y))
+        collage.paste(image, (x, y))
         border_color = 'black'
         border_width = 5
         draw.rectangle([x, y, x + single_image_size, y + single_image_size], outline=border_color, width=border_width)
@@ -65,7 +65,7 @@ def create_collage(items, title, occasion, collage_size=600):
     images = load_images(items)
     collage, draw = create_collage_background(collage_size)
     draw_title(draw, title)
-    place_images_on_collage(collage, images, collage_size)
+    place_images_on_collage(draw, images, collage_size, collage)
 
     collage_filename = f"{title.replace(' ', '_')}_{occasion}.jpg"
     collage_path = os.path.join(collage_directory, collage_filename)
