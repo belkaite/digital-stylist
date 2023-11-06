@@ -24,10 +24,6 @@ def load_wardrobe_items(filepath):
         #WardrobeItem(**item) creates a new instance of the WardrobeItem class.
         #**item unpacks the dictionary so that its key-value pairs are passed as keyword arguments to the WardrobeItem class's __init__ method.
 
-#def display_items(items):
-    for item in items:
-        print(item)
-
 def get_items_by_occasion(items, occasion):
     return [item for item in items if occasion in item.occasion]
 
@@ -75,8 +71,8 @@ def create_collage(items, title, occasion, collage_size=600):
 
 
 if __name__ == "__main__":
-    season_choice = input("What's your season? Choose between: winter, spring, summer, autumn")
-    occasion_choice = input("What's your ocassion? Choose between: everyday, business, festive")
+    season_choice = input("What's your season? Choose between: winter, spring, summer, autumn: ")
+    occasion_choice = input("What's your ocassion? Choose between: everyday, business, festive: ")
     wardrobe_items = load_wardrobe_items('wardrobe.json')
     items_images = load_images(wardrobe_items)
     for img in items_images:
