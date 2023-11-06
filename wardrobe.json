@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "blue jeans",
+        "type": "bottom",
+        "occasion": ["everyday", "business", "festive"],
+        "season": ["winter", "spring", "summer", "autumn"],
+        "image_path": "clothing images/bottoms/blue_jeans_arket.jpg"
+    },
+    {
+        "id": 2,
+        "name": "white T-shirt",
+        "type": "top",
+        "occasion": ["everyday", "business", "festive"],
+        "season": ["spring", "summer"],
+        "image_path": "clothing images/tops/white_t-shirt_by_agne.jpg"
+    },
+    {
+        "id": 3,
+        "name": "white sneakers",
+        "type": "shoes",
+        "occasion": ["everyday", "business"],
+        "season": ["spring", "summer", "autumn"],
+        "image_path": "clothing images/shoes/white_sneakers_stories.com.jpg"
+    }
+   
+]
+
+
