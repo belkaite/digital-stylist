@@ -22,7 +22,16 @@
         "occasion": ["everyday", "business"],
         "season": ["spring", "summer", "autumn"],
         "image_path": "clothing images/shoes/white_sneakers_stories.com.jpg"
+    },
+    {
+        "id": 4,
+        "name": "leather jacket",
+        "type": "jackets",
+        "occasion": ["everyday", "business"],
+        "season": ["spring", "autumn"],
+        "image_path": "clothing images/jackets/leather_jacket_arket.jpg"
     }
+   
    
 ]
 
