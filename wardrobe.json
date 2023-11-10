@@ -5,15 +5,17 @@
         "type": "bottom",
         "occasion": ["everyday", "business", "festive"],
         "season": ["winter", "spring", "summer", "autumn"],
-        "image_path": "clothing images/bottoms/blue_jeans_arket.jpg"
+        "image_path": "clothing images/bottoms/blue_jeans.jpg",
+        "image_source": "https://www.arket.com/"
     },
     {
         "id": 2,
         "name": "white T-shirt",
-        "type": "top",
+        "type": "tops",
         "occasion": ["everyday", "business", "festive"],
         "season": ["spring", "summer"],
-        "image_path": "clothing images/tops/white_t-shirt_by_agne.jpg"
+        "image_path": "clothing images/tops/white_t-shirt.jpg",
+        "image_source": "https://capsule.love/lt/"
     },
     {
         "id": 3,
@@ -21,7 +23,8 @@
         "type": "shoes",
         "occasion": ["everyday", "business"],
         "season": ["spring", "summer", "autumn"],
-        "image_path": "clothing images/shoes/white_sneakers_stories.com.jpg"
+        "image_path": "clothing images/shoes/white_sneakers.jpg",
+        "image_source": "https://www.stories.com/"
     },
     {
         "id": 4,
@@ -29,8 +32,73 @@
         "type": "jackets",
         "occasion": ["everyday", "business"],
         "season": ["spring", "autumn"],
-        "image_path": "clothing images/jackets/leather_jacket_arket.jpg"
+        "image_path": "clothing images/jackets/leather_jacket.jpg",
+        "image_source": "https://www.arket.com/"
+    },
+    {
+        "id": 5,
+        "name": "white trousers",
+        "type": "bottoms",
+        "occasion": ["everyday", "business", "festive"],
+        "season": ["spring", "autumn", "summer", "winter"],
+        "image_path": "clothing images/bottoms/white_trousers.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 6,
+        "name": "black skirt",
+        "type": "bottoms",
+        "occasion": ["business", "festive"],
+        "season": ["spring", "autumn", "summer", "winter"],
+        "image_path": "clothing images/bottoms/black_skirt.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 7,
+        "name": "black trousers",
+        "type": "bottoms",
+        "occasion": ["everyday","business", "festive"],
+        "season": ["spring", "autumn", "summer", "winter"],
+        "image_path": "clothing images/bottoms/black_trousers.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 8,
+        "name": "leopard skirt",
+        "type": "bottoms",
+        "occasion": ["everyday", "festive"],
+        "season": ["spring", "autumn", "summer"],
+        "image_path": "clothing images/bottoms/leopard_skirt.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 9,
+        "name": "leather trousers",
+        "type": "bottoms",
+        "occasion": ["everyday","festive"],
+        "season": ["spring", "autumn", "summer", "winter"],
+        "image_path": "clothing images/bottoms/leather_trousers.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 10,
+        "name": "nude trousers",
+        "type": "bottoms",
+        "occasion": ["everyday","festive", "business"],
+        "season": ["spring", "autumn", "summer", "winter"],
+        "image_path": "clothing images/bottoms/nude_trousers.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 11,
+        "name": "black silk skirt",
+        "type": "bottoms",
+        "occasion": ["everyday","festive", "business"],
+        "season": ["spring", "autumn", "summer", "winter"],
+        "image_path": "clothing images/bottoms/black_silk_skirt.jpg",
+        "image_source": "https://capsule.love/lt/"
     }
+
    
    
 ]
