@@ -97,7 +97,224 @@
         "season": ["spring", "autumn", "summer", "winter"],
         "image_path": "clothing images/bottoms/black_silk_skirt.jpg",
         "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 12,
+        "name": "white shirt",
+        "type": "tops",
+        "occasion": ["festive", "business"],
+        "season": ["spring", "autumn", "summer", "winter"],
+        "image_path": "clothing images/tops/white_shirt.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 13,
+        "name": "black silk skirt",
+        "type": "tops",
+        "occasion": ["festive", "business"],
+        "season": ["spring", "autumn", "summer", "winter"],
+        "image_path": "clothing images/tops/white_shirt.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 13,
+        "name": "striped long-sleeve shirt",
+        "type": "tops",
+        "occasion": ["everyday", "business"],
+        "season": ["spring", "autumn", "summer", "winter"],
+        "image_path": "clothing images/tops/striped_long_sleeve_shirt.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 14,
+        "name": "black sweatshirt",
+        "type": "tops",
+        "occasion": ["everyday", "business"],
+        "season": ["spring", "autumn", "winter"],
+        "image_path": "clothing images/tops/black_sweatshirt.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 15,
+        "name": "black vest",
+        "type": "tops",
+        "occasion": ["business", "festive"],
+        "season": ["spring", "autumn", "winter", "summer"],
+        "image_path": "clothing images/tops/black_vest.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 16,
+        "name": "turtleneck black sweater",
+        "type": "tops",
+        "occasion": ["business", "everyday"],
+        "season": ["spring", "autumn", "winter"],
+        "image_path": "clothing images/tops/turtleneck_black_sweater.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 17,
+        "name": "turtleneck nude sweater",
+        "type": "tops",
+        "occasion": ["business", "everyday"],
+        "season": ["spring", "autumn", "winter"],
+        "image_path": "clothing images/tops/turtleneck_nude_sweater.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 18,
+        "name": "black t-shirt",
+        "type": "tops",
+        "occasion": ["business", "everyday"],
+        "season": ["spring", "autumn", "summer"],
+        "image_path": "clothing images/tops/black_t-shirt.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 17,
+        "name": "turtleneck nude sweater",
+        "type": "tops",
+        "occasion": ["business", "everyday"],
+        "season": ["spring", "autumn", "winter"],
+        "image_path": "clothing images/tops/turtleneck_nude_sweater.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 18,
+        "name": "blue shirt",
+        "type": "tops",
+        "occasion": ["business", "festive"],
+        "season": ["spring", "autumn", "summer", "winter"],
+        "image_path": "clothing images/tops/blue_shirt.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 19,
+        "name": "ankle boots",
+        "type": "shoes",
+        "occasion": ["business", "everyday"],
+        "season": ["spring", "autumn"],
+        "image_path": "clothing images/shoes/ankle_boots.jpg",
+        "image_source": "https://www2.hm.com/"
+    },
+    {
+        "id": 20,
+        "name": "black heels",
+        "type": "shoes",
+        "occasion": ["business", "festive"],
+        "season": ["spring", "autumn", "summer", "winter"],
+        "image_path": "clothing images/shoes/black_heels.jpg",
+        "image_source": "https://www.massimodutti.com"
+    },
+    {
+        "id": 21,
+        "name": "flats",
+        "type": "shoes",
+        "occasion": ["business", "festive", "everyday"],
+        "season": ["spring", "summer"],
+        "image_path": "clothing images/shoes/flats.jpg",
+        "image_source": "https://www.massimodutti.com"
+    },
+    {
+        "id": 22,
+        "name": "high knee boots",
+        "type": "shoes",
+        "occasion": ["everyday", "business"],
+        "season": ["winter", "autumn", "spring"],
+        "image_path": "clothing images/shoes/high_knee_boots.jpg",
+        "image_source": "https://www.arket.com/"
+    },
+    {
+        "id": 23,
+        "name": "loafers",
+        "type": "shoes",
+        "occasion": ["everyday", "business"],
+        "season": ["summer", "autumn", "spring"],
+        "image_path": "clothing images/shoes/loafers.jpg",
+        "image_source": "https://www.whowhatwear.co.uk/"
+    },
+    {
+        "id": 24,
+        "name": "black jacket",
+        "type": "jackets",
+        "occasion": ["business", "festive"],
+        "season": ["spring", "autumn", "summer", "winter"],
+        "image_path": "clothing images/jackets/black_jacket.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 25,
+        "name": "nude jacket",
+        "type": "jackets",
+        "occasion": ["business", "festive"],
+        "season": ["spring", "autumn", "summer", "winter"],
+        "image_path": "clothing images/jackets/nude_jacket.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 26,
+        "name": "black silk dress",
+        "type": "dresses",
+        "occasion": ["festive"],
+        "season": ["spring", "autumn", "summer", "winter"],
+        "image_path": "clothing images/dresses/black_silk_dress.jpg",
+        "image_source": "https://www.arket.com/"
+    },
+    {
+        "id": 27,
+        "name": "black silk dress",
+        "type": "dresses",
+        "occasion": ["festive"],
+        "season": ["spring", "autumn", "summer", "winter"],
+        "image_path": "clothing images/dresses/black_silk_dress.jpg",
+        "image_source": "https://www.arket.com/"
+    },
+    {
+        "id": 28,
+        "name": "floral print dress",
+        "type": "dresses",
+        "occasion": ["everyday", "festive"],
+        "season": ["spring", "summer"],
+        "image_path": "clothing images/dresses/floral_print_dress.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 28,
+        "name": "floral print dress",
+        "type": "dresses",
+        "occasion": ["everyday", "festive"],
+        "season": ["spring", "summer"],
+        "image_path": "clothing images/dresses/floral_print_dress.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 29,
+        "name": "grey coat",
+        "type": "coats",
+        "occasion": ["everyday", "business", "festive"],
+        "season": ["winter", "autumn"],
+        "image_path": "clothing images/coats/grey_coat.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 30,
+        "name": "brown coat",
+        "type": "coats",
+        "occasion": ["everyday", "business", "festive"],
+        "season": ["winter", "autumn"],
+        "image_path": "clothing images/coats/brown_coat.jpg",
+        "image_source": "https://capsule.love/lt/"
+    },
+    {
+        "id": 31,
+        "name": "trench coat",
+        "type": "coats",
+        "occasion": ["everyday", "business", "festive"],
+        "season": ["spring", "autumn"],
+        "image_path": "clothing images/coats/trench_coat.jpg",
+        "image_source": "https://www.arket.com/"
     }
+
 
    
    

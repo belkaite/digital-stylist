@@ -1,4 +1,3 @@
-import json
 from PIL import ImageDraw
 import os
 from collage import CollageService
