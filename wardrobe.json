@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "blue jeans",
-        "type": "bottom",
+        "type": "trousers",
         "occasion": ["everyday", "business", "festive"],
         "season": ["winter", "spring", "summer", "autumn"],
         "image_path": "clothing images/bottoms/blue_jeans.jpg",
@@ -38,7 +38,7 @@
     {
         "id": 5,
         "name": "white trousers",
-        "type": "bottoms",
+        "type": "trousers",
         "occasion": ["everyday", "business", "festive"],
         "season": ["spring", "autumn", "summer", "winter"],
         "image_path": "clothing images/bottoms/white_trousers.jpg",
@@ -47,7 +47,7 @@
     {
         "id": 6,
         "name": "black skirt",
-        "type": "bottoms",
+        "type": "skirt",
         "occasion": ["business", "festive"],
         "season": ["spring", "autumn", "summer", "winter"],
         "image_path": "clothing images/bottoms/black_skirt.jpg",
@@ -56,7 +56,7 @@
     {
         "id": 7,
         "name": "black trousers",
-        "type": "bottoms",
+        "type": "trousers",
         "occasion": ["everyday","business", "festive"],
         "season": ["spring", "autumn", "summer", "winter"],
         "image_path": "clothing images/bottoms/black_trousers.jpg",
@@ -65,7 +65,7 @@
     {
         "id": 8,
         "name": "leopard skirt",
-        "type": "bottoms",
+        "type": "skirt",
         "occasion": ["everyday", "festive"],
         "season": ["spring", "autumn", "summer"],
         "image_path": "clothing images/bottoms/leopard_skirt.jpg",
@@ -74,7 +74,7 @@
     {
         "id": 9,
         "name": "leather trousers",
-        "type": "bottoms",
+        "type": "trousers",
         "occasion": ["everyday","festive"],
         "season": ["spring", "autumn", "summer", "winter"],
         "image_path": "clothing images/bottoms/leather_trousers.jpg",
@@ -83,7 +83,7 @@
     {
         "id": 10,
         "name": "nude trousers",
-        "type": "bottoms",
+        "type": "trousers",
         "occasion": ["everyday","festive", "business"],
         "season": ["spring", "autumn", "summer", "winter"],
         "image_path": "clothing images/bottoms/nude_trousers.jpg",
@@ -92,7 +92,7 @@
     {
         "id": 11,
         "name": "black silk skirt",
-        "type": "bottoms",
+        "type": "skirt",
         "occasion": ["everyday","festive", "business"],
         "season": ["spring", "autumn", "summer", "winter"],
         "image_path": "clothing images/bottoms/black_silk_skirt.jpg",
@@ -238,7 +238,7 @@
         "name": "black jacket",
         "type": "jackets",
         "occasion": ["business", "festive"],
-        "season": ["spring", "autumn", "summer", "winter"],
+        "season": ["spring", "autumn", "winter"],
         "image_path": "clothing images/jackets/black_jacket.jpg",
         "image_source": "https://capsule.love/lt/"
     },
@@ -247,7 +247,7 @@
         "name": "nude jacket",
         "type": "jackets",
         "occasion": ["business", "festive"],
-        "season": ["spring", "autumn", "summer", "winter"],
+        "season": ["spring", "autumn", "winter"],
         "image_path": "clothing images/jackets/nude_jacket.jpg",
         "image_source": "https://capsule.love/lt/"
     },
@@ -314,9 +314,6 @@
         "image_path": "clothing images/coats/trench_coat.jpg",
         "image_source": "https://www.arket.com/"
     }
-
-
-   
    
 ]
 

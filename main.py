@@ -4,29 +4,65 @@ from collage import CollageService
 from wardrobe import WardrobeService
 import random
 
-if __name__ == "__main__":
-    occasion_choice = input("What's your ocassion? Choose between: everyday, business, festive: ")
-    season_choice = input("What's your season? Choose between: winter, spring, summer, autumn: ")
 
-    wardrobe_items = WardrobeService('wardrobe.json')
-
-    selected_items_occasion = wardrobe_items.get_items_by_occasion(occasion_choice)
-    selected_items_season = wardrobe_items.get_items_by_season(season_choice)
-    selected_items = [item for item in selected_items_occasion if item in selected_items_season]
-    shoes = wardrobe_items.get_items_by_type(selected_items, "shoes")
-    bottoms = wardrobe_items.get_items_by_type(selected_items, "bottoms")
-    tops = wardrobe_items.get_items_by_type(selected_items, "tops")
-    jackets = wardrobe_items.get_items_by_type(selected_items, "jackets")
-
-    final_selected_items = []
-    for type in [shoes, bottoms, tops, jackets]:
-        if type != []:  
-            final_selected_items.append(random.choice(type))
-        else:
-            print(f"Not enough items in the category.")
+def create_collage_selection(wardrobe_service, occasion, season, outfit_choice):
+    # Get items by occasion and season first
+    items_by_occasion = wardrobe_service.get_items_by_occasion(occasion)
+    items_by_season = wardrobe_service.get_items_by_season(season)
     
-    if len(final_selected_items) < 4:
-        print("Not enough items for each category. ")
+    # Filter the items that are both in the correct season and occasion
+    filtered_items = [item for item in items_by_occasion if item in items_by_season]
+    
+    # Initialize the final selected items list
+    final_selected_items = []
+
+    # If user chooses a dress
+    if outfit_choice == 'dress':
+        dresses = wardrobe_service.get_items_by_type(filtered_items, 'dresses')
+        if dresses:
+            final_selected_items.append(random.choice(dresses))
+            # Add shoes and jackets/coats
+            shoes = wardrobe_service.get_items_by_type(filtered_items, 'shoes')
+            coats = wardrobe_service.get_items_by_type(filtered_items, 'coats')
+            if shoes:
+                final_selected_items.append(random.choice(shoes))
+            if coats:
+                final_selected_items.append(random.choice(coats))
+        else:
+            print("No dresses available for the chosen occasion and season.")
+
+    # If user chooses a skirt or trousers
+    elif outfit_choice in ['skirt', 'trousers']:
+        bottoms = wardrobe_service.get_items_by_type(filtered_items, outfit_choice)
+        tops = wardrobe_service.get_items_by_type(filtered_items, 'tops')
+        if bottoms and tops:
+            final_selected_items.append(random.choice(bottoms))
+            final_selected_items.append(random.choice(tops))
+            # Add shoes and jackets/coats
+            shoes = wardrobe_service.get_items_by_type(filtered_items, 'shoes')
+            jackets_coats = wardrobe_service.get_items_by_type(filtered_items, 'jackets') + wardrobe_service.get_items_by_type(filtered_items, 'coats')
+            if shoes:
+                final_selected_items.append(random.choice(shoes))
+            if jackets_coats:
+                final_selected_items.append(random.choice(jackets_coats))
+        else:
+            print("Not enough bottoms or tops available for the chosen occasion and season.")
+
+    return final_selected_items
+
+
+
+
+if __name__ == "__main__":
+    occasion_choice = input("What's your occasion? Choose between: everyday, business, festive: ")
+    season_choice = input("What's your season? Choose between: winter, spring, summer, autumn: ")
+    outfit_choice = input("Do you want to wear a dress, skirt, or trousers? ")
+
+    wardrobe_service = WardrobeService('wardrobe.json')
+    final_selected_items = create_collage_selection(wardrobe_service, occasion_choice, season_choice, outfit_choice)
+
+
+    wardrobe_service = WardrobeService('wardrobe.json')
 
 
     collage_service = CollageService(final_selected_items)
