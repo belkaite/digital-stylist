@@ -2,6 +2,7 @@ import json
 from PIL import ImageDraw
 import os
 from CollageService import CollageService
+import random
 
 
 class WardrobeItem:
@@ -32,14 +33,36 @@ def get_items_by_occasion(items, occasion):
 def get_items_by_season(items, season):
     return [item for item in items if season in item.season]
 
+def get_items_by_type(items, type):
+    return [item for item in items if type == item.type]
+
 
 if __name__ == "__main__":
-    season_choice = input("What's your season? Choose between: winter, spring, summer, autumn: ")
     occasion_choice = input("What's your ocassion? Choose between: everyday, business, festive: ")
+    season_choice = input("What's your season? Choose between: winter, spring, summer, autumn: ")
+
     wardrobe_items = load_wardrobe_items('wardrobe.json')
-    season_item = get_items_by_season(wardrobe_items, season_choice)
-    ocassion_item = get_items_by_occasion(wardrobe_items, occasion_choice)
-    collage_service = CollageService(wardrobe_items)
+
+    selected_items_occasion = get_items_by_occasion(wardrobe_items, occasion_choice)
+    selected_items_season = get_items_by_season(wardrobe_items, season_choice)
+    selected_items = [item for item in selected_items_occasion if item in selected_items_season]
+    shoes = get_items_by_type(selected_items, "shoes")
+    bottoms = get_items_by_type(selected_items, "bottoms")
+    tops = get_items_by_type(selected_items, "tops")
+    jackets = get_items_by_type(selected_items, "jackets")
+
+    final_selected_items = []
+    for type in [shoes, bottoms, tops, jackets]:
+        if type != []:  
+            final_selected_items.append(random.choice(type))
+        else:
+            print(f"Not enough items in the category.")
+    
+    if len(final_selected_items) < 4:
+        print("Not enough items for each category. ")
+
+
+    collage_service = CollageService(final_selected_items)
     background = collage_service.create_background()
     draw = ImageDraw.Draw(background)
     collage_service.draw_title(draw)
@@ -50,5 +73,4 @@ if __name__ == "__main__":
     final_collage.save(collage_path)
     final_collage.show()
     print(f"Collage saved to {collage_path}")
-
 
