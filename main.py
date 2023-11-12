@@ -62,18 +62,13 @@ if __name__ == "__main__":
     final_selected_items = create_collage_selection(wardrobe_service, occasion_choice, season_choice, outfit_choice)
 
 
-    wardrobe_service = WardrobeService('wardrobe.json')
 
 
     collage_service = CollageService(final_selected_items)
     background = collage_service.create_background()
     draw = ImageDraw.Draw(background)
-    collage_service.draw_title(draw)
+    collage_service.draw_title(draw,season_choice, occasion_choice)
     collage = collage_service.place_images()
     final_collage = collage_service.paste_collage(background, collage)
-    collage_filename = "test.jpg"
-    collage_path = os.path.join(collage_service.collage_directory, collage_filename)
-    final_collage.save(collage_path)
-    final_collage.show()
-    print(f"Collage saved to {collage_path}")
+    collage_service.save_collage(final_collage)
 

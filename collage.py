@@ -1,23 +1,20 @@
 from PIL import Image, ImageFont
 import numpy
 import os
+from datetime import datetime
 
 class CollageService:
-    def __init__(self, items, background_size=(3080, 3080), title="Test", collage_directory = "collage_folder"):
+    def __init__(self, items, background_size=(3080, 3080)):
         self.items = items
         self.background_size = background_size
-        self.title = title
-        self.collage_directory = collage_directory
-        if not os.path.exists(collage_directory):
-            os.makedirs(collage_directory)
 
     def create_background(self):
         background = Image.new('RGB', self.background_size, 'white')
         return background
 
-    def draw_title(self, draw):
+    def draw_title(self, draw, season, occasion):
         font = ImageFont.truetype("ARIAL.TTF", 100)
-        title = self.title
+        title = f"Your outfit for {occasion} occasion in {season}"
         text_length = draw.textlength(title, font=font)
         image_width = self.background_size[0]
         text_x = (image_width - text_length) / 2 
@@ -49,10 +46,8 @@ class CollageService:
         h1 = numpy.hstack((image_arrays[0], image_arrays[1]))
         h2 = numpy.hstack((image_arrays[2], image_arrays[3]))
         array_image = numpy.vstack((h1, h2))
-
-        final_image = Image.fromarray(array_image)
-        final_image.save(os.path.join(self.collage_directory, 'test.jpg'))
-        return final_image
+        collage = Image.fromarray(array_image)
+        return collage
 
     def paste_collage(self, background, collage):
         background_width, background_height = background.size
@@ -61,4 +56,19 @@ class CollageService:
         y = (background_height - collage_height) // 2
         background.paste(collage, (x, y))
         return background
+    
+    def save_collage(self, final_collage):
+        collage_directory = "collage_folder"
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        unique_filename = f"collage_{timestamp}.jpg"
+        final_collage_path = os.path.join(collage_directory, unique_filename)
+        if not os.path.exists(collage_directory):
+            os.makedirs(collage_directory)
+        final_collage.save(final_collage_path)
+        final_collage.show()
+        print(f"Collage saved to {final_collage_path}")
+        return final_collage
+    
+
+        
 
