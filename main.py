@@ -1,9 +1,46 @@
 from PIL import ImageDraw
-import os
 from collage import CollageService
 from wardrobe import WardrobeService
 import random
 
+
+def select_mode():
+    while True:
+
+        print(
+    """
+What would you like to do next?
+1. Learn more about Capsule Wardrobe
+2. Generate Capsule Wardrobe outfit for inspo
+3. Exit
+""",
+            end="",
+        )
+
+        mode_type = input("Enter your choice (1-3): ")
+
+        if mode_type == "1":
+            get_learn_more()
+            break
+        elif mode_type == "2":
+            generate_outfits()
+            break
+        elif mode_type == "3":
+            print("Exiting...See you next time! 👚")
+            exit()
+        else:
+            print("Error: please choose a valid option.")
+
+def get_learn_more():
+    print("""
+At the heart of the capsule wardrobe is the art of minimalism.
+Instead of having a wardrobe filled with once-worn items, imagine a
+curated collection of essential pieces that can be worn repeatedly
+and play well together in many stylish combos. Embracing this approach
+not only simplifies your daily outfit decisions but also is a way to
+sustainability. With a focus on timeless pieces, a capsule wardrobe
+is an eco-friendly fashion choice.
+""")
 
 def create_collage_selection(wardrobe_service, occasion, season, outfit_choice):
     # Get items by occasion and season first
@@ -50,10 +87,7 @@ def create_collage_selection(wardrobe_service, occasion, season, outfit_choice):
 
     return final_selected_items
 
-
-
-
-if __name__ == "__main__":
+def generate_outfits():
     occasion_choice = input("What's your occasion? Choose between: everyday, business, festive: ")
     season_choice = input("What's your season? Choose between: winter, spring, summer, autumn: ")
     outfit_choice = input("Do you want to wear a dress, skirt, or trousers? ")
@@ -72,3 +106,9 @@ if __name__ == "__main__":
     final_collage = collage_service.paste_collage(background, collage)
     collage_service.save_collage(final_collage)
 
+
+
+if __name__ == "__main__":
+    print("Welcome to Capsule Wardrobe: Your Digital Stylist! 👗")
+    print("------------------------------------------------------\n")
+    select_mode()
