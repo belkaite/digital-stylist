@@ -2,6 +2,7 @@ from PIL import ImageDraw
 from collage import CollageService
 from wardrobe import WardrobeService
 import random
+import textwrap
 
 
 def select_mode():
@@ -32,16 +33,25 @@ What would you like to do next?
             print("Error: please choose a valid option.")
 
 def get_learn_more():
-    print("""
-At the heart of the capsule wardrobe is the art of minimalism.
-Instead of having a wardrobe filled with once-worn items, imagine a
-curated collection of essential pieces that can be worn repeatedly
-and play well together in many stylish combos. Embracing this approach
-not only simplifies your daily outfit decisions but also is a way to
-sustainability. With a focus on timeless pieces, a capsule wardrobe
-is an eco-friendly fashion choice.
-""")
-
+    paragraph = """
+    At the heart of the capsule wardrobe is the art of minimalism. Instead of having a wardrobe filled with once-worn items, imagine a curated collection of essential pieces that can be worn repeatedly and play well together in many stylish combos. Embracing this approach not only simplifies your daily outfit decisions but also is a way to sustainability. With a focus on timeless pieces, a capsule wardrobe is an eco-friendly fashion choice.
+    """
+    follow_up = "Now that you're familiar with the Capsule Wardrobe concept, let's explore the program's main feature - making the outfit!"
+    combined_text = textwrap.fill(paragraph) + "\n\n" + textwrap.fill(follow_up)
+    
+    print(combined_text)
+    
+    while True:
+        next_step = input("Would you like move to the main part? (Yes/Exit)").strip().lower()
+        
+        if next_step == "yes":
+            generate_outfits()
+        elif next_step == "exit":
+            print("Exiting...See you next time! 👚")
+            exit()
+        else:
+            print("Invalid input: Please input 'Yes' or 'Exit'")
+    
 def create_collage_selection(wardrobe_service, occasion, season, outfit_choice):
     # Get items by occasion and season first
     items_by_occasion = wardrobe_service.get_items_by_occasion(occasion)
