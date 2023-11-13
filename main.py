@@ -55,12 +55,12 @@ def create_collage_selection(wardrobe_service, occasion, season, outfit_choice):
 
     # If user chooses a dress
     if outfit_choice == 'dress':
-        dresses = wardrobe_service.get_items_by_type(filtered_items, 'dresses')
+        dresses = wardrobe_service.get_items_by_type(filtered_items, 'dress')
         if dresses:
             final_selected_items.append(random.choice(dresses))
             # Add shoes and jackets/coats
             shoes = wardrobe_service.get_items_by_type(filtered_items, 'shoes')
-            coats = wardrobe_service.get_items_by_type(filtered_items, 'coats')
+            coats = wardrobe_service.get_items_by_type(filtered_items, 'coat')
             if shoes:
                 final_selected_items.append(random.choice(shoes))
             if coats:
@@ -71,13 +71,13 @@ def create_collage_selection(wardrobe_service, occasion, season, outfit_choice):
     # If user chooses a skirt or trousers
     elif outfit_choice in ['skirt', 'trousers']:
         bottoms = wardrobe_service.get_items_by_type(filtered_items, outfit_choice)
-        tops = wardrobe_service.get_items_by_type(filtered_items, 'tops')
+        tops = wardrobe_service.get_items_by_type(filtered_items, 'top')
         if bottoms and tops:
             final_selected_items.append(random.choice(bottoms))
             final_selected_items.append(random.choice(tops))
             # Add shoes and jackets/coats
             shoes = wardrobe_service.get_items_by_type(filtered_items, 'shoes')
-            jackets_coats = wardrobe_service.get_items_by_type(filtered_items, 'jackets') + wardrobe_service.get_items_by_type(filtered_items, 'coats')
+            jackets_coats = wardrobe_service.get_items_by_type(filtered_items, 'jacket') + wardrobe_service.get_items_by_type(filtered_items, 'coat')
             if shoes:
                 final_selected_items.append(random.choice(shoes))
             if jackets_coats:

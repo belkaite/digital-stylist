@@ -36,13 +36,12 @@ class CollageService:
     def place_images(self):
         images = self.resize_images()
         images = [img.convert('RGB') for img in images]  # Convert all images to the same mode (e.g., RGB) to ensure same number of channels
-        image_arrays = [numpy.array(img) for img in images]
 
-        if len(images) == 3:
+        while len(images) < 4:
             images.append(self.create_blank_image())
-
-        # Now we are sure that we have exactly 4 images
+       
         image_arrays = [numpy.array(img) for img in images]
+        print(len(image_arrays))
         h1 = numpy.hstack((image_arrays[0], image_arrays[1]))
         h2 = numpy.hstack((image_arrays[2], image_arrays[3]))
         array_image = numpy.vstack((h1, h2))

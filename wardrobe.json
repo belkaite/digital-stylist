@@ -3,7 +3,7 @@
         "id": 1,
         "name": "blue jeans",
         "type": "trousers",
-        "occasion": ["everyday", "business", "festive"],
+        "occasion": ["everyday"],
         "season": ["winter", "spring", "summer", "autumn"],
         "image_path": "clothing images/bottoms/blue_jeans.jpg",
         "image_source": "https://www.arket.com/"
@@ -11,7 +11,7 @@
     {
         "id": 2,
         "name": "white T-shirt",
-        "type": "tops",
+        "type": "top",
         "occasion": ["everyday", "business", "festive"],
         "season": ["spring", "summer"],
         "image_path": "clothing images/tops/white_t-shirt.jpg",
@@ -21,7 +21,7 @@
         "id": 3,
         "name": "white sneakers",
         "type": "shoes",
-        "occasion": ["everyday", "business"],
+        "occasion": ["everyday"],
         "season": ["spring", "summer", "autumn"],
         "image_path": "clothing images/shoes/white_sneakers.jpg",
         "image_source": "https://www.stories.com/"
@@ -29,8 +29,8 @@
     {
         "id": 4,
         "name": "leather jacket",
-        "type": "jackets",
-        "occasion": ["everyday", "business"],
+        "type": "jacket",
+        "occasion": ["everyday"],
         "season": ["spring", "autumn"],
         "image_path": "clothing images/jackets/leather_jacket.jpg",
         "image_source": "https://www.arket.com/"
@@ -50,7 +50,7 @@
         "type": "skirt",
         "occasion": ["business", "festive"],
         "season": ["spring", "autumn", "summer", "winter"],
-        "image_path": "clothing images/bottoms/black_skirt.jpg",
+        "image_path": "clothing images/skirts/black_skirt.jpg",
         "image_source": "https://capsule.love/lt/"
     },
     {
@@ -68,7 +68,7 @@
         "type": "skirt",
         "occasion": ["everyday", "festive"],
         "season": ["spring", "autumn", "summer"],
-        "image_path": "clothing images/bottoms/leopard_skirt.jpg",
+        "image_path": "clothing images/skirts/leopard_skirt.jpg",
         "image_source": "https://capsule.love/lt/"
     },
     {
@@ -95,22 +95,13 @@
         "type": "skirt",
         "occasion": ["everyday","festive", "business"],
         "season": ["spring", "autumn", "summer", "winter"],
-        "image_path": "clothing images/bottoms/black_silk_skirt.jpg",
+        "image_path": "clothing images/skirts/black_silk_skirt.jpg",
         "image_source": "https://capsule.love/lt/"
     },
     {
         "id": 12,
         "name": "white shirt",
-        "type": "tops",
-        "occasion": ["festive", "business"],
-        "season": ["spring", "autumn", "summer", "winter"],
-        "image_path": "clothing images/tops/white_shirt.jpg",
-        "image_source": "https://capsule.love/lt/"
-    },
-    {
-        "id": 13,
-        "name": "black silk skirt",
-        "type": "tops",
+        "type": "top",
         "occasion": ["festive", "business"],
         "season": ["spring", "autumn", "summer", "winter"],
         "image_path": "clothing images/tops/white_shirt.jpg",
@@ -119,7 +110,7 @@
     {
         "id": 13,
         "name": "striped long-sleeve shirt",
-        "type": "tops",
+        "type": "top",
         "occasion": ["everyday", "business"],
         "season": ["spring", "autumn", "summer", "winter"],
         "image_path": "clothing images/tops/striped_long_sleeve_shirt.jpg",
@@ -128,7 +119,7 @@
     {
         "id": 14,
         "name": "black sweatshirt",
-        "type": "tops",
+        "type": "top",
         "occasion": ["everyday", "business"],
         "season": ["spring", "autumn", "winter"],
         "image_path": "clothing images/tops/black_sweatshirt.jpg",
@@ -137,7 +128,7 @@
     {
         "id": 15,
         "name": "black vest",
-        "type": "tops",
+        "type": "top",
         "occasion": ["business", "festive"],
         "season": ["spring", "autumn", "winter", "summer"],
         "image_path": "clothing images/tops/black_vest.jpg",
@@ -146,7 +137,7 @@
     {
         "id": 16,
         "name": "turtleneck black sweater",
-        "type": "tops",
+        "type": "top",
         "occasion": ["business", "everyday"],
         "season": ["spring", "autumn", "winter"],
         "image_path": "clothing images/tops/turtleneck_black_sweater.jpg",
@@ -155,7 +146,7 @@
     {
         "id": 17,
         "name": "turtleneck nude sweater",
-        "type": "tops",
+        "type": "top",
         "occasion": ["business", "everyday"],
         "season": ["spring", "autumn", "winter"],
         "image_path": "clothing images/tops/turtleneck_nude_sweater.jpg",
@@ -164,7 +155,7 @@
     {
         "id": 18,
         "name": "black t-shirt",
-        "type": "tops",
+        "type": "top",
         "occasion": ["business", "everyday"],
         "season": ["spring", "autumn", "summer"],
         "image_path": "clothing images/tops/black_t-shirt.jpg",
@@ -173,7 +164,7 @@
     {
         "id": 17,
         "name": "turtleneck nude sweater",
-        "type": "tops",
+        "type": "top",
         "occasion": ["business", "everyday"],
         "season": ["spring", "autumn", "winter"],
         "image_path": "clothing images/tops/turtleneck_nude_sweater.jpg",
@@ -182,7 +173,7 @@
     {
         "id": 18,
         "name": "blue shirt",
-        "type": "tops",
+        "type": "top",
         "occasion": ["business", "festive"],
         "season": ["spring", "autumn", "summer", "winter"],
         "image_path": "clothing images/tops/blue_shirt.jpg",
@@ -236,7 +227,7 @@
     {
         "id": 24,
         "name": "black jacket",
-        "type": "jackets",
+        "type": "jacket",
         "occasion": ["business", "festive"],
         "season": ["spring", "autumn", "winter"],
         "image_path": "clothing images/jackets/black_jacket.jpg",
@@ -245,7 +236,7 @@
     {
         "id": 25,
         "name": "nude jacket",
-        "type": "jackets",
+        "type": "jacket",
         "occasion": ["business", "festive"],
         "season": ["spring", "autumn", "winter"],
         "image_path": "clothing images/jackets/nude_jacket.jpg",
@@ -254,7 +245,7 @@
     {
         "id": 26,
         "name": "black silk dress",
-        "type": "dresses",
+        "type": "dress",
         "occasion": ["festive"],
         "season": ["spring", "autumn", "summer", "winter"],
         "image_path": "clothing images/dresses/black_silk_dress.jpg",
@@ -262,58 +253,80 @@
     },
     {
         "id": 27,
-        "name": "black silk dress",
-        "type": "dresses",
-        "occasion": ["festive"],
-        "season": ["spring", "autumn", "summer", "winter"],
-        "image_path": "clothing images/dresses/black_silk_dress.jpg",
-        "image_source": "https://www.arket.com/"
-    },
-    {
-        "id": 28,
         "name": "floral print dress",
-        "type": "dresses",
+        "type": "dress",
         "occasion": ["everyday", "festive"],
         "season": ["spring", "summer"],
         "image_path": "clothing images/dresses/floral_print_dress.jpg",
         "image_source": "https://capsule.love/lt/"
     },
+    
     {
         "id": 28,
-        "name": "floral print dress",
-        "type": "dresses",
-        "occasion": ["everyday", "festive"],
-        "season": ["spring", "summer"],
-        "image_path": "clothing images/dresses/floral_print_dress.jpg",
-        "image_source": "https://capsule.love/lt/"
-    },
-    {
-        "id": 29,
         "name": "grey coat",
-        "type": "coats",
+        "type": "coat",
         "occasion": ["everyday", "business", "festive"],
         "season": ["winter", "autumn"],
         "image_path": "clothing images/coats/grey_coat.jpg",
         "image_source": "https://capsule.love/lt/"
     },
     {
-        "id": 30,
-        "name": "brown coat",
-        "type": "coats",
-        "occasion": ["everyday", "business", "festive"],
-        "season": ["winter", "autumn"],
-        "image_path": "clothing images/coats/brown_coat.jpg",
-        "image_source": "https://capsule.love/lt/"
-    },
-    {
-        "id": 31,
+        "id": 29,
         "name": "trench coat",
-        "type": "coats",
+        "type": "coat",
         "occasion": ["everyday", "business", "festive"],
         "season": ["spring", "autumn"],
         "image_path": "clothing images/coats/trench_coat.jpg",
         "image_source": "https://www.arket.com/"
+    },
+    {
+        "id": 30,
+        "name": "knitted dress",
+        "type": "dress",
+        "occasion": ["everyday", "business"],
+        "season": ["winter", "autumn"],
+        "image_path": "clothing images/dresses/knitted_dress.jpg",
+        "image_source": "https://www.cos.com/"
+    },
+    {
+        "id": 31,
+        "name": "puffer coat",
+        "type": "coat",
+        "occasion": ["everyday"],
+        "season": ["winter", "autumn"],
+        "image_path": "clothing images/coats/puffer_coat.jpg",
+        "image_source": "https://www.arket.com/"
+    },
+    {
+        "id": 32,
+        "name": "sweater dress",
+        "type": "dress",
+        "occasion": ["everyday", "business"],
+        "season": ["spring", "autumn"],
+        "image_path": "clothing images/dresses/sweater_dress.jpg",
+        "image_source": "https://www.arket.com/"
+    },
+    {
+        "id": 33,
+        "name": "linen dress",
+        "type": "dress",
+        "occasion": ["everyday", "business"],
+        "season": ["summer"],
+        "image_path": "clothing images/dresses/linen_dress.jpg",
+        "image_source": "https://www.net-a-porter.com/"
+    },
+    {
+        "id": 34,
+        "name": "strappy sandals",
+        "type": "shoes",
+        "occasion": ["festive", "business"],
+        "season": ["summer", "spring"],
+        "image_path": "clothing images/shoes/strappy_sandals.jpg",
+        "image_source": "https://www.net-a-porter.com/"
     }
+    
+    
+    
    
 ]
 
