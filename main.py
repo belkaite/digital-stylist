@@ -12,7 +12,7 @@ def select_mode():
     """
 What would you like to do next?
 1. Learn more about Capsule Wardrobe
-2. Generate Capsule Wardrobe outfit for inspo
+2. 🌟 Generate Capsule Wardrobe outfit for inspo 🌟 
 3. Exit
 """,
             end="",
@@ -111,45 +111,68 @@ def generate_outfits():
             print("Invalid input: Please input 'Yes' or 'Exit'")
 
     print("Let's start with three quick questions to tailor the right outfit for you...")
-    valid_occasions = ['everyday', 'business', 'festive']
     while True:
-        occasion_choice = input("1. Your occasion? Pick one: everyday, business or festive? Enter choice: ").strip().lower()
-        if occasion_choice in valid_occasions:
-            break
-        print("Invalid choice. Please enter 'everyday', 'business' or 'festive'.")
+        valid_occasions = ['everyday', 'business', 'festive']
+        while True:
+            occasion_choice = input("1. Your occasion? Pick one: everyday, business or festive? Enter choice: ").strip().lower()
+            if occasion_choice in valid_occasions:
+                break
+            print("Invalid choice. Please enter 'everyday', 'business' or 'festive'.")
 
-    valid_seasons = ['winter', 'spring', 'summer', 'autumn']
-    while True:
-        season_choice = input("2. Which season are we styling for? Pick one: winter, spring, summer or autumn? Enter choice: ").strip().lower()
-        if season_choice in valid_seasons:
-            break
-        print("Invalid choice. Please enter 'winter', 'spring', 'summer' or 'autumn'.")
+        valid_seasons = ['winter', 'spring', 'summer', 'autumn']
+        while True:
+            season_choice = input("2. Which season are we styling for? Pick one: winter, spring, summer or autumn? Enter choice: ").strip().lower()
+            if season_choice in valid_seasons:
+                break
+            print("Invalid choice. Please enter 'winter', 'spring', 'summer' or 'autumn'.")
 
-    valid_preferences = ['dress', 'skirt', 'trousers']
-    while True:
-        preference = input("3. What's your preference? Pick one: dress, skirt or trousers? Enter choice: ").strip().lower()
-        if preference in valid_preferences:
-            break
-        print("Invalid choice. Please enter 'dress', 'skirt' or 'trousers'.")
+        valid_preferences = ['dress', 'skirt', 'trousers']
+        while True:
+            preference = input("3. What's your preference? Pick one: dress, skirt or trousers? Enter choice: ").strip().lower()
+            if preference in valid_preferences:
+                break
+            print("Invalid choice. Please enter 'dress', 'skirt' or 'trousers'.")
 
+        wardrobe_service = WardrobeService('wardrobe.json')
+        final_selected_items = create_collage_selection(wardrobe_service, occasion_choice, season_choice, preference)
+        collage_service = CollageService(final_selected_items)
+        background = collage_service.create_background()
+        draw = ImageDraw.Draw(background)
+        collage_service.draw_title(draw,season_choice, occasion_choice)
+        collage = collage_service.place_images()
+        final_collage = collage_service.paste_collage(background, collage)
+        collage_service.save_collage(final_collage)
+        
+        while True:
+            continue_msg = input("""
+Do you like the outfit? (Yes/No): 
+'Yes' - The outfit will be added to the Favorites folder under the Collage folder.
+'No' - The outfit will still be saved in the general Collage folder, so you can revisit it anytime in the future!
+""").strip().lower()
 
-    wardrobe_service = WardrobeService('wardrobe.json')
-    final_selected_items = create_collage_selection(wardrobe_service, occasion_choice, season_choice, preference)
+            if continue_msg in ["yes", "no"]:
+                break
+            else:
+                print("Invalid input: Please enter 'Yes' or 'No'")
 
+        if continue_msg == "yes":
+            print("Added to favorites")
 
+        while True:
+            new_outfit_msg = input("Would you like to create another outfit? (Yes/No): ").strip().lower()
+            if new_outfit_msg in ["yes", "no"]:
+                break
+            else:
+                print("Invalid input: Please enter 'Yes' or 'No'")
 
-
-    collage_service = CollageService(final_selected_items)
-    background = collage_service.create_background()
-    draw = ImageDraw.Draw(background)
-    collage_service.draw_title(draw,season_choice, occasion_choice)
-    collage = collage_service.place_images()
-    final_collage = collage_service.paste_collage(background, collage)
-    collage_service.save_collage(final_collage)
+        if new_outfit_msg == "no":
+            print("All set! Remember, your chic outfits are waiting in the collage folder for whenever inspiration needed. See you next time! 👚")
+            exit()
 
 
 
 if __name__ == "__main__":
+    print("------------------------------------------------------\n")
     print("Welcome to Capsule Wardrobe: Your Digital Stylist! 👗")
     print("------------------------------------------------------\n")
     select_mode()
