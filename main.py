@@ -34,9 +34,9 @@ What would you like to do next?
 
 def get_learn_more():
     paragraph = """
-    At the heart of the capsule wardrobe is the art of minimalism. Instead of having a wardrobe filled with once-worn items, imagine a curated collection of essential pieces that can be worn repeatedly and play well together in many stylish combos. Embracing this approach not only simplifies your daily outfit decisions but also is a way to sustainability. With a focus on timeless pieces, a capsule wardrobe is an eco-friendly fashion choice.
+    At the heart of the capsule wardrobe is the art of minimalism. Instead of having a wardrobe filled with once-worn items, imagine a curated collection of essential pieces that can be worn repeatedly and play well together in many stylish combos. Embracing this approach not only simplifies your daily outfit decisions but also is a way to sustainability. With a focus on timeless pieces, a capsule wardrobe is an eco-friendly fashion choice. 🌳
     """
-    follow_up = "Now that you're familiar with the Capsule Wardrobe concept, let's explore the program's main feature - making the outfit!"
+    follow_up = "Now that you're familiar with the Capsule Wardrobe concept, let's explore the program's main feature - generate the outfit!"
     combined_text = textwrap.fill(paragraph) + "\n\n" + textwrap.fill(follow_up)
     
     print(combined_text)
@@ -52,7 +52,7 @@ def get_learn_more():
         else:
             print("Invalid input: Please input 'Yes' or 'Exit'")
     
-def create_collage_selection(wardrobe_service, occasion, season, outfit_choice):
+def create_collage_selection(wardrobe_service, occasion, season, preference):
     # Get items by occasion and season first
     items_by_occasion = wardrobe_service.get_items_by_occasion(occasion)
     items_by_season = wardrobe_service.get_items_by_season(season)
@@ -64,7 +64,7 @@ def create_collage_selection(wardrobe_service, occasion, season, outfit_choice):
     final_selected_items = []
 
     # If user chooses a dress
-    if outfit_choice == 'dress':
+    if preference == 'dress':
         dresses = wardrobe_service.get_items_by_type(filtered_items, 'dress')
         if dresses:
             final_selected_items.append(random.choice(dresses))
@@ -79,8 +79,8 @@ def create_collage_selection(wardrobe_service, occasion, season, outfit_choice):
             print("No dresses available for the chosen occasion and season.")
 
     # If user chooses a skirt or trousers
-    elif outfit_choice in ['skirt', 'trousers']:
-        bottoms = wardrobe_service.get_items_by_type(filtered_items, outfit_choice)
+    elif preference in ['skirt', 'trousers']:
+        bottoms = wardrobe_service.get_items_by_type(filtered_items, preference)
         tops = wardrobe_service.get_items_by_type(filtered_items, 'top')
         if bottoms and tops:
             final_selected_items.append(random.choice(bottoms))
@@ -98,12 +98,43 @@ def create_collage_selection(wardrobe_service, occasion, season, outfit_choice):
     return final_selected_items
 
 def generate_outfits():
-    occasion_choice = input("What's your occasion? Choose between: everyday, business, festive: ")
-    season_choice = input("What's your season? Choose between: winter, spring, summer, autumn: ")
-    outfit_choice = input("Do you want to wear a dress, skirt, or trousers? ")
+
+    while True:
+        intro_msg = input("Ready for some chic outfit inspiration from your Digital Stylist? ✨ (Yes/Exit)").strip().lower()
+        
+        if intro_msg == "yes":
+            break
+        elif intro_msg == "exit":
+            print("Exiting...See you next time! 👚")
+            exit()
+        else:
+            print("Invalid input: Please input 'Yes' or 'Exit'")
+
+    print("Let's start with three quick questions to tailor the right outfit for you...")
+    valid_occasions = ['everyday', 'business', 'festive']
+    while True:
+        occasion_choice = input("1. Your occasion? Pick one: everyday, business or festive? Enter choice: ").strip().lower()
+        if occasion_choice in valid_occasions:
+            break
+        print("Invalid choice. Please enter 'everyday', 'business' or 'festive'.")
+
+    valid_seasons = ['winter', 'spring', 'summer', 'autumn']
+    while True:
+        season_choice = input("2. Which season are we styling for? Pick one: winter, spring, summer or autumn? Enter choice: ").strip().lower()
+        if season_choice in valid_seasons:
+            break
+        print("Invalid choice. Please enter 'winter', 'spring', 'summer' or 'autumn'.")
+
+    valid_preferences = ['dress', 'skirt', 'trousers']
+    while True:
+        preference = input("3. What's your preference? Pick one: dress, skirt or trousers? Enter choice: ").strip().lower()
+        if preference in valid_preferences:
+            break
+        print("Invalid choice. Please enter 'dress', 'skirt' or 'trousers'.")
+
 
     wardrobe_service = WardrobeService('wardrobe.json')
-    final_selected_items = create_collage_selection(wardrobe_service, occasion_choice, season_choice, outfit_choice)
+    final_selected_items = create_collage_selection(wardrobe_service, occasion_choice, season_choice, preference)
 
 
 

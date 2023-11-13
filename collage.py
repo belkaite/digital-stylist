@@ -41,7 +41,6 @@ class CollageService:
             images.append(self.create_blank_image())
        
         image_arrays = [numpy.array(img) for img in images]
-        print(len(image_arrays))
         h1 = numpy.hstack((image_arrays[0], image_arrays[1]))
         h2 = numpy.hstack((image_arrays[2], image_arrays[3]))
         array_image = numpy.vstack((h1, h2))
