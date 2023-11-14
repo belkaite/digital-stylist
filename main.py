@@ -137,7 +137,7 @@ Do you like the outfit? (Yes/No):
 
         if new_outfit_msg == "no":
             print(
-                "All set! Remember, your chic outfits are waiting in the collage folder for whenever inspiration needed. See you next time! 👚"
+                f"All set! Remember, your chic outfits are waiting in the {collage_service.main_folder} for whenever inspiration needed. See you next time! 👚"
             )
             exit()
 

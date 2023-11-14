@@ -94,12 +94,13 @@ def create_collage_selection(
         final_selected_items.append(random.choice(dresses))
         final_selected_items.append(random.choice(shoes))
 
-        if coats:
-            final_selected_items.append(random.choice(coats))
-        else:
-            print(
-                "Hmmm.. No coats in a wardrobe, but proceeding with available dress and shoes."
-            )
+        if season != "summer":
+            if coats:
+                final_selected_items.append(random.choice(coats))
+            else:
+                print(
+                    "Hmmm.. No coats in a wardrobe, but proceeding with available dress and shoes."
+                )
 
     elif preference in ["skirt", "trousers"]:
         bottoms = wardrobe_service.get_items_by_type(filtered_items, preference)
@@ -123,14 +124,15 @@ def create_collage_selection(
         final_selected_items.append(random.choice(tops))
         final_selected_items.append(random.choice(shoes))
 
-        jackets_coats = wardrobe_service.get_items_by_type(
-            filtered_items, "jacket"
-        ) + wardrobe_service.get_items_by_type(filtered_items, "coat")
-        if jackets_coats:
-            final_selected_items.append(random.choice(jackets_coats))
-        else:
-            print(
-                "Hmmm.. No coats or jackets in a wardrobe, but proceeding with available skirt/trousers and tops."
-            )
+        if season != "summer":
+            jackets_coats = wardrobe_service.get_items_by_type(
+                filtered_items, "jacket"
+            ) + wardrobe_service.get_items_by_type(filtered_items, "coat")
+            if jackets_coats:
+                final_selected_items.append(random.choice(jackets_coats))
+            else:
+                print(
+                    "Hmmm.. No coats or jackets in a wardrobe, but proceeding with available skirt/trousers and tops."
+                )
 
     return final_selected_items
