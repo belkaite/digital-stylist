@@ -104,7 +104,7 @@ def generate_outfits():
                 input(
                     f"""
 Do you like the outfit? (Yes/No): 
-'Yes' - The outfit will be added to the {collage_service.subfolder} folder under the Collage folder.
+'Yes' - The outfit will be added to the {collage_service.subfolder} folder under the {collage_service.main_folder} folder.
 'No' - The outfit will still be saved in the {collage_service.main_folder}, so you can revisit it anytime in the future!
 """
                 )
