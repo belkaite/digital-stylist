@@ -11,7 +11,7 @@ from PIL import ImageDraw
 import textwrap
 
 
-def select_mode():
+def select_mode() -> None:
     while True:
         print(
             """
@@ -38,7 +38,7 @@ What would you like to do next?
             print("Error: please choose a valid option.")
 
 
-def get_learn_more():
+def get_learn_more() -> None:
     paragraph = """
     At the heart of the capsule wardrobe is the art of minimalism. Instead of having a wardrobe filled with once-worn items, imagine a curated collection of essential pieces that can be worn repeatedly and play well together in many stylish combos. Embracing this approach not only simplifies your daily outfit decisions but also is a way to sustainability. With a focus on timeless pieces, a capsule wardrobe is an eco-friendly fashion choice. 🌳
     """
@@ -61,7 +61,7 @@ def get_learn_more():
             print("Invalid input: Please input 'Yes' or 'Exit'")
 
 
-def generate_outfits():
+def generate_outfits() -> None:
     intro_message()
 
     print(

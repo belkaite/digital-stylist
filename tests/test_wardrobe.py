@@ -26,25 +26,25 @@ class MockWardrobeService(WardrobeService):
         ]
 
 
-def test_get_items_by_winter_season():
+def test_get_items_by_winter_season() -> None:
     service = MockWardrobeService()
     winter_items = service.get_items_by_season("winter")
     assert len(winter_items) == 1
 
 
-def test_get_items_by_summer_season():
+def test_get_items_by_summer_season() -> None:
     service = MockWardrobeService()
     summer_items = service.get_items_by_season("summer")
     assert len(summer_items) == 1
 
 
-def test_get_items_by_invalid_season():
+def test_get_items_by_invalid_season() -> None:
     service = MockWardrobeService()
     invalid_season_items = service.get_items_by_season("invalid-season")
     assert len(invalid_season_items) == 0
 
 
-def test_get_items_by_empty_season():
+def test_get_items_by_empty_season() -> None:
     service = MockWardrobeService()
     empty_season_items = service.get_items_by_season("")
     assert len(empty_season_items) == 0
