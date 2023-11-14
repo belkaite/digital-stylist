@@ -1,7 +1,9 @@
 import random
+from typing import List
+from src.wardrobe import WardrobeService, WardrobeItem
 
 
-def intro_message():
+def intro_message() -> None:
     while True:
         intro_msg = (
             input(
@@ -20,7 +22,7 @@ def intro_message():
             print("Invalid input: Please input 'Yes' or 'Exit'")
 
 
-def occasions_message(valid_occasions):
+def occasions_message(valid_occasions: List[str]) -> str:
     while True:
         occasion_choice = (
             input(
@@ -35,7 +37,7 @@ def occasions_message(valid_occasions):
     return occasion_choice
 
 
-def seasons_message(valid_seasons):
+def seasons_message(valid_seasons: List[str]) -> str:
     while True:
         season_choice = (
             input(
@@ -50,7 +52,7 @@ def seasons_message(valid_seasons):
     return season_choice
 
 
-def preference_message(valid_preferences):
+def preference_message(valid_preferences: List[str]) -> str:
     while True:
         preference = (
             input(
@@ -65,7 +67,9 @@ def preference_message(valid_preferences):
     return preference
 
 
-def create_collage_selection(wardrobe_service, occasion, season, preference):
+def create_collage_selection(
+    wardrobe_service: WardrobeService, occasion: str, season: str, preference: str
+) -> List[WardrobeItem]:
     items_by_occasion = wardrobe_service.get_items_by_occasion(occasion)
     items_by_season = wardrobe_service.get_items_by_season(season)
 

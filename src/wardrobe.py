@@ -1,8 +1,18 @@
 import json
+from typing import List
 
 
 class WardrobeItem:
-    def __init__(self, id, name, type, occasion, season, image_path, image_source):
+    def __init__(
+        self,
+        id: int,
+        name: str,
+        type: str,
+        occasion: List[str],
+        season: List[str],
+        image_path: str,
+        image_source: str,
+    ):
         self.id = id
         self.name = name
         self.type = type
@@ -16,10 +26,10 @@ class WardrobeItem:
 
 
 class WardrobeService:
-    def __init__(self, filepath):
+    def __init__(self, filepath: str):
         self.wardrobe_items = self.load_wardrobe_items(filepath)
 
-    def load_wardrobe_items(self, filepath):
+    def load_wardrobe_items(self, filepath: str) -> List[WardrobeItem]:
         try:
             with open(filepath, "r") as file:
                 data = json.load(file)
@@ -31,11 +41,13 @@ class WardrobeService:
         except FileNotFoundError:
             raise FileNotFoundError(f"The file {filepath} was not found.")
 
-    def get_items_by_occasion(self, occasion):
+    def get_items_by_occasion(self, occasion: str) -> List[WardrobeItem]:
         return [item for item in self.wardrobe_items if occasion in item.occasion]
 
-    def get_items_by_season(self, season):
+    def get_items_by_season(self, season: str) -> List[WardrobeItem]:
         return [item for item in self.wardrobe_items if season in item.season]
 
-    def get_items_by_type(self, items, type):
+    def get_items_by_type(
+        self, items: List[WardrobeItem], type: str
+    ) -> List[WardrobeItem]:
         return [item for item in items if type == item.type]

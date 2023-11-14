@@ -1,21 +1,29 @@
-from PIL import Image, ImageFont
+from PIL import Image, ImageFont, ImageDraw
 import numpy
 import os
 from datetime import datetime
+from src.wardrobe import WardrobeItem
+from typing import List, Tuple
 
 
 class CollageService:
-    def __init__(self, items, main_folder, subfolder, background_size=(3080, 3080)):
+    def __init__(
+        self,
+        items: List[WardrobeItem],
+        main_folder: str,
+        subfolder: str,
+        background_size: Tuple[int, int] = (3080, 3080),
+    ) -> None:
         self.items = items
         self.main_folder = main_folder
         self.subfolder = subfolder
         self.background_size = background_size
 
-    def create_background(self):
+    def create_background(self) -> Image.Image:
         background = Image.new("RGB", self.background_size, "white")
         return background
 
-    def draw_title(self, draw, season, occasion):
+    def draw_title(self, draw: ImageDraw.Draw, season: str, occasion: str) -> None:
         font = ImageFont.truetype("ARIAL.TTF", 100)
         title = f"Your outfit for {occasion} occasion in {season}"
         text_length = draw.textlength(title, font=font)
@@ -24,7 +32,7 @@ class CollageService:
         text_y = 250
         draw.text((text_x, text_y), title, fill="black", font=font)
 
-    def resize_images(self):
+    def resize_images(self) -> List[Image.Image]:
         resized_images = []
         for item in self.items:
             img = Image.open(item.image_path)
@@ -32,11 +40,15 @@ class CollageService:
             resized_images.append(img)
         return resized_images
 
-    def create_blank_image(self, size=(1080, 1080), color=(255, 255, 255)):
+    def create_blank_image(
+        self,
+        size: Tuple[int, int] = (1080, 1080),
+        color: Tuple[int, int, int] = (255, 255, 255),
+    ) -> Image.Image:
         blank = Image.new("RGB", size, color)
         return blank
 
-    def place_images(self):
+    def place_images(self) -> Image.Image:
         images = self.resize_images()
         images = [img.convert("RGB") for img in images]
 
@@ -50,7 +62,9 @@ class CollageService:
         collage = Image.fromarray(array_image)
         return collage
 
-    def paste_collage(self, background, collage):
+    def paste_collage(
+        self, background: Image.Image, collage: Image.Image
+    ) -> Image.Image:
         background_width, background_height = background.size
         collage_width, collage_height = collage.size
         x = (background_width - collage_width) // 2
@@ -58,7 +72,9 @@ class CollageService:
         background.paste(collage, (x, y))
         return background
 
-    def save_collage(self, final_collage, is_favorite=False):
+    def save_collage(
+        self, final_collage: Image.Image, is_favorite: bool = False
+    ) -> str:
         main_directory = self.main_folder
         subdirectory = self.subfolder if is_favorite else ""
 
