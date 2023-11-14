@@ -1,5 +1,6 @@
 import json
 
+
 class WardrobeItem:
     def __init__(self, id, name, type, occasion, season, image_path, image_source):
         self.id = id
@@ -9,10 +10,10 @@ class WardrobeItem:
         self.season = season
         self.image_path = image_path
         self.image_source = image_source
-    
-    #This string representation is what is shown when I print an instance of the class, or when you use the str() function on an instance.
+
     def __str__(self):
         return f"{self.name} (Type: {self.type}, Occasions: {', '.join(self.occasion)}, Seasons: {', '.join(self.season)})"
+
 
 class WardrobeService:
     def __init__(self, filepath):
@@ -20,7 +21,7 @@ class WardrobeService:
 
     def load_wardrobe_items(self, filepath):
         try:
-            with open(filepath, 'r') as file:
+            with open(filepath, "r") as file:
                 data = json.load(file)
                 if not data:
                     raise ValueError("Oops..The wardrobe file is empty.")
@@ -29,7 +30,6 @@ class WardrobeService:
             raise ValueError("Oops.. JSON file is not in the correct format or empty.")
         except FileNotFoundError:
             raise FileNotFoundError(f"The file {filepath} was not found.")
-
 
     def get_items_by_occasion(self, occasion):
         return [item for item in self.wardrobe_items if occasion in item.occasion]
