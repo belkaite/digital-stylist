@@ -4,8 +4,10 @@ import os
 from datetime import datetime
 
 class CollageService:
-    def __init__(self, items, background_size=(3080, 3080)):
+    def __init__(self, items, main_folder, subfolder, background_size=(3080, 3080)):
         self.items = items
+        self.main_folder = main_folder
+        self.subfolder = subfolder
         self.background_size = background_size
 
     def create_background(self):
@@ -55,17 +57,24 @@ class CollageService:
         background.paste(collage, (x, y))
         return background
     
-    def save_collage(self, final_collage):
-        collage_directory = "collage_folder"
+    def save_collage(self, final_collage, is_favorite=False):
+        main_directory = self.main_folder
+        subdirectory = self.subfolder if is_favorite else ""
+
+
+
+        collage_directory = os.path.join(main_directory, subdirectory) 
+        if not os.path.exists(collage_directory):
+            os.makedirs(collage_directory)
+
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         unique_filename = f"collage_{timestamp}.jpg"
         final_collage_path = os.path.join(collage_directory, unique_filename)
-        if not os.path.exists(collage_directory):
-            os.makedirs(collage_directory)
+    
         final_collage.save(final_collage_path)
-        final_collage.show()
-        print(f"Collage saved to {final_collage_path}")
-        return final_collage
+    
+        return final_collage_path
+
     
 
         

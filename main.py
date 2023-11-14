@@ -12,7 +12,7 @@ def select_mode():
     """
 What would you like to do next?
 1. Learn more about Capsule Wardrobe
-2. 🌟 Generate Capsule Wardrobe outfit for inspo 🌟 
+2. 🌟 Generate Capsule Wardrobe outfit for inspiration 🌟 
 3. Exit
 """,
             end="",
@@ -135,19 +135,20 @@ def generate_outfits():
 
         wardrobe_service = WardrobeService('wardrobe.json')
         final_selected_items = create_collage_selection(wardrobe_service, occasion_choice, season_choice, preference)
-        collage_service = CollageService(final_selected_items)
+        collage_service = CollageService(final_selected_items, main_folder = "Outfits", subfolder = "Favorites")
         background = collage_service.create_background()
         draw = ImageDraw.Draw(background)
         collage_service.draw_title(draw,season_choice, occasion_choice)
         collage = collage_service.place_images()
         final_collage = collage_service.paste_collage(background, collage)
         collage_service.save_collage(final_collage)
+        final_collage.show()
         
         while True:
-            continue_msg = input("""
+            continue_msg = input(f"""
 Do you like the outfit? (Yes/No): 
-'Yes' - The outfit will be added to the Favorites folder under the Collage folder.
-'No' - The outfit will still be saved in the general Collage folder, so you can revisit it anytime in the future!
+'Yes' - The outfit will be added to the {collage_service.subfolder} folder under the Collage folder.
+'No' - The outfit will still be saved in the {collage_service.main_folder}, so you can revisit it anytime in the future!
 """).strip().lower()
 
             if continue_msg in ["yes", "no"]:
@@ -156,8 +157,12 @@ Do you like the outfit? (Yes/No):
                 print("Invalid input: Please enter 'Yes' or 'No'")
 
         if continue_msg == "yes":
-            print("Added to favorites")
-
+            saved_path = collage_service.save_collage(final_collage, is_favorite=True)
+            print(f"💌 Added to {collage_service.subfolder}: {saved_path}")
+        else:
+            saved_path = collage_service.save_collage(final_collage)
+            print(f"✅ Added to {collage_service.main_folder}: {saved_path}")
+        
         while True:
             new_outfit_msg = input("Would you like to create another outfit? (Yes/No): ").strip().lower()
             if new_outfit_msg in ["yes", "no"]:
