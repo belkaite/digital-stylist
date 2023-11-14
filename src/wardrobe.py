@@ -19,9 +19,17 @@ class WardrobeService:
         self.wardrobe_items = self.load_wardrobe_items(filepath)
 
     def load_wardrobe_items(self, filepath):
-        with open(filepath, 'r') as file:
-            data = json.load(file)
-            return [WardrobeItem(**item) for item in data]
+        try:
+            with open(filepath, 'r') as file:
+                data = json.load(file)
+                if not data:
+                    raise ValueError("Oops..The wardrobe file is empty.")
+                return [WardrobeItem(**item) for item in data]
+        except json.JSONDecodeError:
+            raise ValueError("Oops.. JSON file is not in the correct format or empty.")
+        except FileNotFoundError:
+            raise FileNotFoundError(f"The file {filepath} was not found.")
+
 
     def get_items_by_occasion(self, occasion):
         return [item for item in self.wardrobe_items if occasion in item.occasion]

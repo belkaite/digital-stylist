@@ -51,33 +51,44 @@ def create_collage_selection(wardrobe_service, occasion, season, preference):
     # If user chooses a dress
     if preference == 'dress':
         dresses = wardrobe_service.get_items_by_type(filtered_items, 'dress')
-        if dresses:
-            final_selected_items.append(random.choice(dresses))
-            # Add shoes and jackets/coats
-            shoes = wardrobe_service.get_items_by_type(filtered_items, 'shoes')
-            coats = wardrobe_service.get_items_by_type(filtered_items, 'coat')
-            if shoes:
-                final_selected_items.append(random.choice(shoes))
-            if coats:
-                final_selected_items.append(random.choice(coats))
+        shoes = wardrobe_service.get_items_by_type(filtered_items, 'shoes')
+        coats = wardrobe_service.get_items_by_type(filtered_items, 'coat')
+
+        if not dresses:
+            raise ValueError("Oh no! No dresses in a wardrobe for the chosen occasion and season.")
+        if not shoes:
+            raise ValueError("Oh no! No suitable shoes in a wardrobe for the chosen occasion and season.")
+
+        final_selected_items.append(random.choice(dresses))
+        final_selected_items.append(random.choice(shoes))
+
+        if coats:
+            final_selected_items.append(random.choice(coats))
         else:
-            print("No dresses available for the chosen occasion and season.")
+            print("Hmmm.. No coats in a wardrobe, but proceeding with available dress and shoes.")
 
     # If user chooses a skirt or trousers
     elif preference in ['skirt', 'trousers']:
         bottoms = wardrobe_service.get_items_by_type(filtered_items, preference)
         tops = wardrobe_service.get_items_by_type(filtered_items, 'top')
-        if bottoms and tops:
-            final_selected_items.append(random.choice(bottoms))
-            final_selected_items.append(random.choice(tops))
-            # Add shoes and jackets/coats
-            shoes = wardrobe_service.get_items_by_type(filtered_items, 'shoes')
-            jackets_coats = wardrobe_service.get_items_by_type(filtered_items, 'jacket') + wardrobe_service.get_items_by_type(filtered_items, 'coat')
-            if shoes:
-                final_selected_items.append(random.choice(shoes))
-            if jackets_coats:
-                final_selected_items.append(random.choice(jackets_coats))
+        shoes = wardrobe_service.get_items_by_type(filtered_items, 'shoes')
+
+        if not bottoms:
+            raise ValueError(f"Oh no! No {preference} in a wardrobe for the chosen occasion and season.")
+        if not tops:
+            raise ValueError("Oh no! No tops in a wardrobe for the chosen occasion and season.")
+        if not shoes:
+            raise ValueError("Oh no! No shoes in a wardrobe for the chosen occasion and season.")
+
+        final_selected_items.append(random.choice(bottoms))
+        final_selected_items.append(random.choice(tops))
+        final_selected_items.append(random.choice(shoes))
+
+        # Optional: Add jackets or coats if available
+        jackets_coats = wardrobe_service.get_items_by_type(filtered_items, 'jacket') + wardrobe_service.get_items_by_type(filtered_items, 'coat')
+        if jackets_coats:
+            final_selected_items.append(random.choice(jackets_coats))
         else:
-            print("Not enough bottoms or tops available for the chosen occasion and season.")
+            print("Hmmm.. No coats or jackets in a wardrobe, but proceeding with available skirt/trousers and tops.")
 
     return final_selected_items

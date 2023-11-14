@@ -68,8 +68,14 @@ def generate_outfits():
         valid_preferences = ['dress', 'skirt', 'trousers']
         preference = preference_message(valid_preferences)
 
-        wardrobe_service = WardrobeService('wardrobe.json')
-        final_selected_items = create_collage_selection(wardrobe_service, occasion_choice, seasons_choice, preference)
+        
+        try:
+            wardrobe_service = WardrobeService('wardrobe.json')
+            final_selected_items = create_collage_selection(wardrobe_service, occasion_choice, seasons_choice, preference)
+        except ValueError as e:
+            print(f"{e}")
+            print("It's a quick goodbye from us – time to fix this issue. See you in a bit! 👚")
+            exit()
         collage_service = CollageService(final_selected_items, main_folder = "Outfits", subfolder = "Favorites")
         background = collage_service.create_background()
         draw = ImageDraw.Draw(background)
