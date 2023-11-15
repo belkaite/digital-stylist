@@ -1,4 +1,5 @@
 # Capsule Wardrobe - Your Digital Stylist 👗
+
 <img src="example.jpg" width="500">
 
 ## Introduction
