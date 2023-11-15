@@ -11,6 +11,13 @@ from PIL import ImageDraw
 import textwrap
 
 
+"""
+The main file for the Capsule Wardrobe program. This file orchestrates the user interaction and the overall 
+workflow of generating personalized outfit collages. It leverages functions from the utilities file for user prompts 
+and uses the WardrobeService and CollageService classes for creating and managing wardrobe items and collages.
+"""
+
+
 def select_mode() -> None:
     while True:
         print(
@@ -96,7 +103,7 @@ def generate_outfits() -> None:
         collage_service.draw_title(draw, seasons_choice, occasion_choice)
         collage = collage_service.place_images()
         final_collage = collage_service.paste_collage(background, collage)
-        #collage_service.save_collage(final_collage)
+        # collage_service.save_collage(final_collage)
         final_collage.show()
 
         while True:

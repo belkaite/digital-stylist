@@ -3,6 +3,13 @@ from typing import List
 from src.wardrobe import WardrobeService, WardrobeItem
 
 
+"""
+This file serves as a collection of utility or helper functions for the main file in Capsule Wardrobe program. 
+It handles user interactions, guiding them through a series of choices to tailor their outfit selections 
+and process their responses which is needed for outfit generation.
+"""
+
+
 def intro_message() -> None:
     while True:
         intro_msg = (

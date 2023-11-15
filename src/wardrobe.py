@@ -3,6 +3,10 @@ from typing import List
 
 
 class WardrobeItem:
+    """
+    Represents an individual wardrobe item with attributes like ID, name, type, occasion, season, image path and image source.
+    """
+
     def __init__(
         self,
         id: int,
@@ -26,6 +30,11 @@ class WardrobeItem:
 
 
 class WardrobeService:
+    """
+    Provides services for managing a collection of WardrobeItem objects,
+    including loading items from a file and retrieving items based on such criteria: occasion, season, type.
+    """
+
     def __init__(self, filepath: str):
         self.wardrobe_items = self.load_wardrobe_items(filepath)
 

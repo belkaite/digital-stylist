@@ -7,6 +7,12 @@ from typing import List, Tuple
 
 
 class CollageService:
+    """
+    Provides functionality for creating a collage from a list of WardrobeItem objects.
+    It has operations such as creating a background of the collage, drawing a title on it, resizing images,
+    generating a collage (create_blank_image, place_images, paste_collage functions) and saving the final output.
+    """
+
     def __init__(
         self,
         items: List[WardrobeItem],
