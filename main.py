@@ -103,7 +103,7 @@ def generate_outfits() -> None:
         collage_service.draw_title(draw, seasons_choice, occasion_choice)
         collage = collage_service.place_images()
         final_collage = collage_service.paste_collage(background, collage)
-        # collage_service.save_collage(final_collage)
+
         final_collage.show()
 
         while True:
